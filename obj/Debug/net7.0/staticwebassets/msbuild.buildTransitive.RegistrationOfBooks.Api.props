@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\RegistrationOfBooks.Api.props" />
+</Project>

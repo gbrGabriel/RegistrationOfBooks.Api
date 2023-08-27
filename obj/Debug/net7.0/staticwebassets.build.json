@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "dCwATkrQRpB1ZJnDDOyelNQpPH5XQGhM2SwukuZqTp8=",
+  "Source": "RegistrationOfBooks.Api",
+  "BasePath": "_content/RegistrationOfBooks.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
