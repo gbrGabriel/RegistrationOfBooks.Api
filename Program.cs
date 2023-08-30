@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using RegistrationOfBooks.Api.Persistence;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -24,8 +25,8 @@ builder.Services.AddSwaggerGen(opt =>
         }
     });
 
-    var xmlFile = "RegistrationOfBooks.xml";
-    var xmlPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, xmlFile);
+    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
 
     opt.IncludeXmlComments(xmlPath);
 });
