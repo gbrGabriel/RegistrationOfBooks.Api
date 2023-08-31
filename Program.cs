@@ -1,10 +1,20 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using RegistrationOfBooks.Api.Persistence;
+using Serilog;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+builder.Host.ConfigureAppConfiguration((hostingContext, config) =>
+{
+    Serilog.Log.Logger = new LoggerConfiguration()
+        .Enrich.FromLogContext()
+        .WriteTo.MSSqlServer(connectionString, "Logs", autoCreateSqlTable: true)
+        .WriteTo.Console()
+        .CreateLogger();
+}).UseSerilog();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
