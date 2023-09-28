@@ -18,7 +18,7 @@ builder.Host.ConfigureAppConfiguration((hostingContext, config) =>
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddScoped<RegistrationBooksDbContext>();
+builder.Services.AddSingleton<RegistrationBooksDbContext>();
 builder.Services.AddDbContext<RegistrationBooksDbContext>(opt => opt.UseSqlServer(connectionString));
 builder.Services.AddSwaggerGen(opt =>
 {
