@@ -86,7 +86,7 @@ namespace RegistrationOfBooks.Api.Controllers
             return NoContent();
         }
 
-        [HttpGet("{name:string}")]
+        [HttpGet("{name}")]
         [ProducesResponseType(typeof(IList<Book>), 200)]
         public async Task<IActionResult> GetByName(string name)
         {
